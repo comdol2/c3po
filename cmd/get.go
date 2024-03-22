@@ -4,8 +4,6 @@ import (
 	"log"
 	"fmt"
 	"github.com/spf13/cobra"
-        "github.com/comdol2/c3po/api"
-        "github.com/comdol2/c3po/api/utils"
 )
 
 type Role struct {
@@ -36,9 +34,9 @@ var GetCmd = &cobra.Command{
 				log.Fatalf("ERROR: %v", err)
 			}
 
-			var roles []api.Role
+			var roles Role
 			for _, roleMap := range res {
-				role := api.Role{
+				role := Role{
 					ApplicationId:          roleMap["ApplicationId"].(string),
 					Name:                   roleMap["Name"].(string),
 					Description:            roleMap["Description"].(string),
